@@ -18,9 +18,9 @@ del(farads_prefix_map['T'])
 @ddt
 class TestUnits(unittest.TestCase):
     @data({'text': None,     'units': '',  'value': None            },
-          {'text': '',       'units': '',  'value': Decimal('1')    },
-          {'text': 'm',      'units': '',  'value': Decimal('1e-3') },
-          {'text': 'M',      'units': '',  'value': Decimal('1e6')  },
+          {'text': '',       'units': '',  'value': None            },
+          {'text': 'm',      'units': '',  'value': None            },
+          {'text': 'M',      'units': '',  'value': None            },
           {'text': '0.',     'units': 'U', 'value': Decimal('0')    },
           {'text': '1.',     'units': 'U', 'value': Decimal('1')    },
           {'text': '0',      'units': 'U', 'value': Decimal('0')    },
@@ -36,7 +36,7 @@ class TestUnits(unittest.TestCase):
         self.assertEqual(to_decimal(text, units, ignore_prefix=False), value)
 
     @data({'text': None,     'units': '',  'value': None            },
-          {'text': '',       'units': '',  'value': Decimal('1')    },
+          {'text': '',       'units': '',  'value': None            },
           {'text': 'm',      'units': '',  'value': None            },
           {'text': 'M',      'units': '',  'value': None            },
           {'text': '0.',     'units': 'U', 'value': Decimal('0')    },
@@ -53,14 +53,14 @@ class TestUnits(unittest.TestCase):
         value = data['value']
         self.assertEqual(to_decimal(text, units, ignore_prefix=True), value)
 
-    @data({'value': None,               'decimals': 3, 'prefix_map': prefix_map,           'units': '',    'text': ''           },
+    @data({'value': Decimal('0'),       'decimals': 3, 'prefix_map': prefix_map,           'units': '',    'text': '0.000'      },
           {'value': Decimal('1'),       'decimals': 3, 'prefix_map': prefix_map,           'units': '',    'text': '1.000'      },
           {'value': Decimal('2'),       'decimals': 1, 'prefix_map': prefix_map,           'units': '',    'text': '2.0'        },
           {'value': Decimal('1.005e3'), 'decimals': 2, 'prefix_map': prefix_map,           'units': '',    'text': '1.01 K'     },
           {'value': Decimal('100.3e3'), 'decimals': 3, 'prefix_map': frequency_prefix_map, 'units': 'Hz',  'text': '100.300 KHz'},
           {'value': Decimal('3.01e-5'), 'decimals': 0, 'prefix_map': farads_prefix_map,    'units': 'F',   'text': '30 uF'      },
           {'value': Decimal('1234.56'), 'decimals': 1, 'prefix_map': None,                 'units': 'dBm', 'text': '1234.6 dBm' },
-          {'value': Decimal('-1e-2'),   'decimals': 2, 'prefix_map': None,                 'units': 'dBm', 'text': '-0.01 dBm'   })
+          {'value': Decimal('-1e-2'),   'decimals': 2, 'prefix_map': None,                 'units': 'dBm', 'text': '-0.01 dBm'  })
     def test_to_str(self, data):
         value      = data['value'     ]
         decimals   = data['decimals'  ]
