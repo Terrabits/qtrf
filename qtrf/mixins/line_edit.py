@@ -49,10 +49,13 @@ class LineEditMixin(object):
             return
         prefix_value = self._prefix_value_from_ord(key)
         base_value   = to_decimal(self.text(), self.units, ignore_prefix=True)
-        if prefix_value and base_value:
-            self.value = base_value * prefix_value
-        elif base_value:
+        if base_value == 0:
             self.value = base_value
+        elif base_value:
+            if prefix_value:
+                self.value = base_value * prefix_value
+            else:
+                self.value = base_value
         self.selectAll()
         event.accept()
 
