@@ -4,12 +4,14 @@ from .db.label         import dBLabel
 from .db.line_edit     import dBLineEdit
 from .dbm.label        import dBmLabel
 from .dbm.line_edit    import dBmLineEdit
+from .file             import FileWidget
 from .hz.label         import HzLabel
 from .hz.line_edit     import HzLineEdit
 from .meters.label     import MetersLabel
 from .meters.line_edit import MetersLineEdit
 from .ohms.label       import OhmsLabel
 from .ohms.line_edit   import OhmsLineEdit
+from .touchstone       import TouchstoneWidget
 from .value.label      import ValueLabel
 from .value.line_edit  import ValueLineEdit
 from .volts.label      import VoltsLabel
