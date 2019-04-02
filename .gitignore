@@ -1,4 +1,6 @@
 __pycache__/
+build/
+dist/
 *.egg-info/
 *.pro.user
 .python-version
