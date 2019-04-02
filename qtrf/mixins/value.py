@@ -13,9 +13,9 @@ class ValueMixin(object):
         return to_decimal(self.text(), self.units)
     @value.setter
     def value(self, value):
-        if value:
-            self.setText(self._to_str(value))
-        else:
+        if value == None or value == '':
             self.clear()
+            return
+        self.setText(self._to_str(value))
     def _to_str(self, value):
         return to_str(value, self.decimal_places, self.prefix_map, self.units)
