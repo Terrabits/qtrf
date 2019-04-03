@@ -27,10 +27,13 @@ class FileWidget(QWidget):
             return ''
 
     @Slot()
-    def on_button_clicked(self):
+    def on_open_clicked(self):
         filename, filter = QFileDialog.getOpenFileName(self.window(), self.caption, self._dir(), self.filter)
         if filename:
             self.filename = filename
+    @Slot()
+    def on_clear_clicked(self):
+        self.filename = None
 
     def update_filename(self):
         if self._filename:
