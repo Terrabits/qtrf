@@ -1,5 +1,7 @@
 from .amps.label           import AmpsLabel
 from .amps.line_edit       import AmpsLineEdit
+from .celsius.label        import CelsiusLabel
+from .celsius.line_edit    import CelsiusLineEdit
 from .db.label             import dBLabel
 from .db.line_edit         import dBLineEdit
 from .dbm.label            import dBmLabel
