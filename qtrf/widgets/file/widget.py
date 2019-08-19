@@ -8,31 +8,30 @@ class FileWidget(QWidget):
         QWidget.__init__(self, parent)
         self.ui = Ui_FileWidget()
         self.ui.setupUi(self)
-        self.caption   = 'Open...'
-        self.filter    = ''
-        self._filename = None
+        self.caption    = 'Open...'
+        self.filter     = ''
+        self._filename  = None
+        self._last_path = ''
+        self.ui.open .clicked.connect(self.choose_file)
+        self.ui.clear.clicked.connect(self.clear)
 
     @property
     def filename(self):
         return self._filename
     @filename.setter
     def filename(self, value):
-        self._filename = value
+        self._filename  = value or ''
+        self._last_path = str(Path(value).parent) if value else self._last_path
         self.update_filename()
 
-    def _dir(self):
-        if self.filename:
-            return str(Path(self.filename).parent)
-        else:
-            return ''
-
     @Slot()
-    def on_open_clicked(self):
-        filename, filter = QFileDialog.getOpenFileName(self.window(), self.caption, self._dir(), self.filter)
+    def choose_file(self, dir=None):
+        dir = dir or self._last_path
+        filename, filter = QFileDialog.getOpenFileName(self.window(), self.caption, dir, self.filter)
         if filename:
             self.filename = filename
     @Slot()
-    def on_clear_clicked(self):
+    def clear(self):
         self.filename = None
 
     def update_filename(self):
