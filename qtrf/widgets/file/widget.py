@@ -22,19 +22,24 @@ class FileWidget(QWidget):
     def filename(self, value):
         self._filename  = value or ''
         self._last_path = str(Path(value).parent) if value else self._last_path
-        self.update_filename()
+        self._update_filename()
 
     @Slot()
     def choose_file(self, dir=None):
-        dir = dir or self._last_path
-        filename, filter = QFileDialog.getOpenFileName(self.window(), self.caption, dir, self.filter)
-        if filename:
-            self.filename = filename
+        filename,_    = self._dialog(dir)
+        self.filename = filename or self.filename
+        return filename
+
     @Slot()
     def clear(self):
         self.filename = None
 
-    def update_filename(self):
+    def _dialog(self, dir=None):
+        return QFileDialog.getOpenFileName(self.window(),
+                                           self.caption,
+                                           dir or self._last_path,
+                                           self.filter)
+    def _update_filename(self):
         if self._filename:
             self.ui.filename.setText(Path(self._filename).name)
         else:
