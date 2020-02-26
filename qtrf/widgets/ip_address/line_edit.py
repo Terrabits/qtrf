@@ -1,4 +1,3 @@
-
 from PySide2.QtCore    import QRegExp
 from PySide2.QtGui     import QRegExpValidator
 from PySide2.QtWidgets import QLineEdit
@@ -23,5 +22,6 @@ class IPAddressLineEdit(QLineEdit):
         QLineEdit.__init__(self, parent)
         validator = QRegExpValidator(QRegExp(regex_str))
         self.setValidator(validator)
+
     def focusInEvent(self, event):
         self.selectAll()
