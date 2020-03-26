@@ -24,7 +24,7 @@ def regex_str(prefixes=list(prefix_map), units='U', include_negative=True):
         prefixes_regex = ''
     return '{}{} {}{}'.format(sign_regex, value_regex, prefixes_regex, units).strip()
 
-# str => number
+# str => float if successful else None
 def to_decimal(text, units='', ignore_prefix=False):
     # clean input
     try:
