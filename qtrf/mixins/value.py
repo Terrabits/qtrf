@@ -18,13 +18,13 @@ class ValueMixin(object):
 
     @value.setter
     def value(self, value):
-        if self.value == value:
-            return
-        if value == None or value == '':
+        value_is_new = self.value == value
+        if value is None or value == '':
             self.clear()
         else:
             self.setText(self._to_str(value))
-        self.value_changed.emit(self.value)
+        if value_is_new:
+            self.value_changed.emit(self.value)
 
     # signals
     value_changed = Signal(float)
