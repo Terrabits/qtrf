@@ -1,7 +1,8 @@
 from PySide2.QtCore    import QRegExp, Qt
-from PySide2.QtGui     import QKeyEvent, QRegExpValidator
+from PySide2.QtGui     import QRegExpValidator
 from PySide2.QtWidgets import QLineEdit
 from qtrf.units        import prefix_map, regex_str, to_decimal
+
 
 class LineEditMixin(object):
     def __init__(self):
@@ -16,19 +17,24 @@ class LineEditMixin(object):
             self._prefix_keys = [ord(i.upper()) for i in self.prefix_map if i]
         else:
             self._prefix_keys = []
+
     def _create_validator(self):
         _regex_str = regex_str(self.prefix_map, self.units, self.include_negative)
         return QRegExpValidator(QRegExp(_regex_str))
+
     def _update_validator(self):
         self.setValidator(self._create_validator())
+
     def update_validation(self):
         self._update_prefix_keys()
         self._update_validator()
 
     def _is_special_key(self, key):
         return key in self._special_keys
+
     def _is_prefix_key(self, key):
         return key in self._prefix_keys
+
     def _prefix_value_from_ord(self, key):
         if not self.prefix_map:
             return None
@@ -42,6 +48,7 @@ class LineEditMixin(object):
         if lower_chr in self.prefix_map:
             return self.prefix_map[lower_chr]
         return None
+
     def keyPressEvent(self, event):
         key = event.key()
         if not self._is_special_key(key) and not self._is_prefix_key(key):
@@ -62,6 +69,11 @@ class LineEditMixin(object):
     def focusInEvent(self, event):
         QLineEdit.focusInEvent(self, event)
         self.selectAll()
+
     def focusOutEvent(self, event):
         self.value = self.value
         QLineEdit.focusOutEvent(self, event)
+
+    def mousePressEvent(self, event):
+        QLineEdit.mousePressEvent(self, event)
+        self.selectAll()
