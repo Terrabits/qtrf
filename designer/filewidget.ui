@@ -2,17 +2,9 @@
 <ui version="4.0">
  <class>FileWidget</class>
  <widget class="QWidget" name="FileWidget">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>131</width>
-    <height>22</height>
-   </rect>
-  </property>
   <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,0,0">
    <property name="spacing">
-    <number>0</number>
+    <number>-1</number>
    </property>
    <property name="leftMargin">
     <number>0</number>
@@ -33,6 +25,9 @@
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
      </property>
      <property name="readOnly">
       <bool>true</bool>
