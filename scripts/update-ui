@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+
+# paths
+SCRIPTS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+ROOT_DIR="$SCRIPTS_DIR/.."
+SRC_DIR="$ROOT_DIR/designer"
+DEST_DIR="$ROOT_DIR/qtrf/widgets/file"
+
+# exit on error
+# echo on
+set -e
+set -x
+
+cd "$ROOT_DIR"
+pyside2-uic "$SRC_DIR/filewidget.ui" > "$DEST_DIR/ui_filewidget.py"

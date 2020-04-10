@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# paths
+SCRIPTS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+ROOT_DIR="$SCRIPTS_DIR/.."
+
+# exit on error
+# echo on
+set -e
+set -x
+
+# get pyenv name
+PYENV="$(cat "$ROOT_DIR/.python-version")"
+
+# assuming `version@name` format
+# parse python version
+IFS="@"
+read -ra PYENV_ARRAY <<< "$PYENV"
+VERSION="${PYENV_ARRAY[0]}"
+
+# uninstall virtualenv
+yes | pyenv uninstall "$PYENV"
+
+# create fresh virtualenv
+pyenv virtualenv "$VERSION" "$PYENV"

@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-pyside2-uic designer/filewidget.ui > qtrf/widgets/file/ui_filewidget.py
