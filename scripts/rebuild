@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+
+# paths
+SCRIPTS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+ROOT_DIR="$SCRIPTS_DIR/.."
+
+# exit on error
+# echo on
+set -e
+set -x
+
+cd "$SCRIPTS_DIR"
+./clean
+./build
