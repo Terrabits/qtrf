@@ -3,5 +3,6 @@ build/
 dist/
 *.egg-info/
 *.pro.user
+*.pro.user.*
 .python-version
 *.pyc
