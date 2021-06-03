@@ -1,4 +1,4 @@
-from .ui_filewidget             import Ui_FileWidget
+from .ui_file                   import Ui_FileWidget
 from pathlib                    import Path
 from PySide2.QtCore             import Slot
 from PySide2.QtWidgets          import QFileDialog, QWidget

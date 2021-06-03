@@ -1,24 +1,21 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'filewidget.ui'
+## Form generated from reading UI file 'file.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.14.1
+## Created by: Qt User Interface Compiler version 5.15.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import (QCoreApplication, QMetaObject, QObject, QPoint,
-    QRect, QSize, QUrl, Qt)
-from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
-    QFontDatabase, QIcon, QLinearGradient, QPalette, QPainter, QPixmap,
-    QRadialGradient)
+from PySide2.QtCore import *
+from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
 
 class Ui_FileWidget(object):
     def setupUi(self, FileWidget):
-        if FileWidget.objectName():
+        if not FileWidget.objectName():
             FileWidget.setObjectName(u"FileWidget")
         self.horizontalLayout = QHBoxLayout(FileWidget)
 #ifndef Q_OS_MAC
@@ -69,5 +66,6 @@ class Ui_FileWidget(object):
     def retranslateUi(self, FileWidget):
         self.open.setText(QCoreApplication.translate("FileWidget", u"...", None))
         self.clear.setText(QCoreApplication.translate("FileWidget", u"X", None))
+        pass
     # retranslateUi
 
