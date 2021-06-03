@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT      += core gui widgets
-TARGET   = designer
+TARGET   = qtrf
 TEMPLATE = app
 CONFIG  += c++11
-FORMS   += filewidget.ui
+FORMS   += qtcreator/filewidget.ui
