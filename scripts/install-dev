@@ -9,6 +9,6 @@ set -e
 cd "$ROOT_DIR"
 
 
-# build
-python setup.py sdist
-python setup.py bdist_wheel --universal
+# install dev
+pip install --upgrade  pip setuptools
+pip install --editable .[dev]
