@@ -2,6 +2,15 @@ from PySide2.QtCore    import Signal
 from qtrf.units        import prefix_map, to_decimal, to_str
 
 
+def float_or_none(value):
+    if value is None:
+        return None
+    if value is '':
+        return None
+
+    return float(value)
+
+
 # Use requires:
 # - class be QWidget
 # - methods: text() and setText(text)
@@ -18,13 +27,19 @@ class ValueMixin(object):
 
     @value.setter
     def value(self, value):
-        value_is_new = self.value == value
-        if value is None or value == '':
+        value = float_or_none(value)
+        if self.value == value:
+            # nothing new to do
+            return
+
+        # set
+        if value is None:
             self.clear()
         else:
             self.setText(self._to_str(value))
-        if value_is_new:
-            self.value_changed.emit(self.value)
+
+        # signal value changed
+        self.value_changed.emit(self.value)
 
     # signals
     value_changed = Signal(float)
