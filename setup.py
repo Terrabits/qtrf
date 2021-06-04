@@ -176,16 +176,10 @@ setup(
     # In this case, 'data_file' will be installed into '<sys.prefix>/my_data'
     data_files=[],  # Optional
 
-    # To provide executable scripts, use entry points in preference to the
-    # "scripts" keyword. Entry points provide cross-platform support and allow
-    # `pip` to create the appropriate form of executable for the target
-    # platform.
-    #
-    # For example, the following would provide a command called `sample` which
-    # executes the function `main` from this package when invoked:
-    entry_points={  # Optional
-        'console_scripts': [],
-    },
+    entry_points={
+        'console_scripts': [
+            'show-widget=qtrf.bin.show_widget:main'
+    ]},
 
     # List additional URLs that are relevant to your project as a dict.
     #
