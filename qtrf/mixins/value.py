@@ -5,7 +5,7 @@ from qtrf.units        import prefix_map, to_decimal, to_str
 def float_or_none(value):
     if value is None:
         return None
-    if value is '':
+    if value == '':
         return None
 
     return float(value)
