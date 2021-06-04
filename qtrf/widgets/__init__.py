@@ -14,6 +14,7 @@ from .meters.label         import MetersLabel
 from .meters.line_edit     import MetersLineEdit
 from .ohms.label           import OhmsLabel
 from .ohms.line_edit       import OhmsLineEdit
+from .points.line_edit     import PointsLineEdit
 from .ports.label          import PortsLabel
 from .ports.line_edit      import PortsLineEdit
 from .touchstone           import TouchstoneWidget
