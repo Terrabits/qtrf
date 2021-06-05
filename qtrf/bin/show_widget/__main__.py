@@ -20,7 +20,8 @@ def main():
     try:
         WidgetClass = getattr(qtrf.widgets, args.widget_class)
     except AttributeError:
-        print("{widget_class} not found in qtrf".format(widget_class=args.widget_class))
+        print("error 404: {widget_class} not found in qtrf".format(widget_class=args.widget_class))
+        sys.exit(404)
 
     # create
     widget = WidgetClass()
