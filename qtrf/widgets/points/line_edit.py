@@ -46,7 +46,7 @@ class PointsLineEdit(QLineEdit):
         self.selectAll()
 
     def mousePressEvent(self, event):
-        QLineEdit.mousePressEvent(event)
+        QLineEdit.mousePressEvent(self, event)
         self.selectAll()
 
     # helpers
