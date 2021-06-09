@@ -1,11 +1,32 @@
+from .mixins           import PortsListMixin, ValidatorMixin
+from .mixins.ports     import to_list
+from PySide2.QtCore    import Slot
 from PySide2.QtWidgets import QLineEdit
-from .mixin.focus     import FocusMixin
-from .mixin.list      import ListMixin
-from .mixin.validator import ValidatorMixin
+from qtrf.mixins       import SpecialKeysMixin
 
-class PortsLineEdit(ValidatorMixin, FocusMixin, ListMixin, QLineEdit):
+
+class PortsLineEdit(SpecialKeysMixin, ValidatorMixin, PortsListMixin, QLineEdit):
     def __init__(self, parent=None):
-        QLineEdit     .__init__(self, parent)
-        ListMixin     .__init__(self)
-        FocusMixin    .__init__(self)
-        ValidatorMixin.__init__(self)
+        super().__init__(parent)
+        self.special_key_pressed.connect(self.enter_value)
+
+    @Slot()
+    def focusInEvent(self, event):
+        super().focusInEvent(event)
+        self.selectAll()
+
+    @Slot()
+    def focusOutEvent(self, event):
+        event.accept()
+        self.enter_value()
+
+    @Slot()
+    def mousePressEvent(self, event):
+        super().mousePressEvent(event)
+        self.selectAll()
+
+
+    # helpers
+
+    def enter_value(self):
+        self.list = to_list(self.text())

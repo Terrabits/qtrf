@@ -1,8 +1,9 @@
-from qtrf.widgets.value.label import ValueLabel
+from qtrf.widgets.float_value.label import FloatValueLabel
 
-class CelsiusLabel(ValueLabel):
+
+class CelsiusLabel(FloatValueLabel):
     def __init__(self, parent=None):
-        ValueLabel.__init__(self, parent)
+        FloatValueLabel.__init__(self, parent)
         self.decimal_places = 1
-        self.prefix_map     = None
+        self.prefix_keys     = None
         self.units          = '°C'

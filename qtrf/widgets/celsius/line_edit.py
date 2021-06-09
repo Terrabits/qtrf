@@ -1,9 +1,10 @@
-from qtrf.widgets.value.line_edit import ValueLineEdit
+from qtrf.widgets.float_value.line_edit import FloatValueLineEdit
 
-class CelsiusLineEdit(ValueLineEdit):
+
+class CelsiusLineEdit(FloatValueLineEdit):
     def __init__(self, parent=None):
-        ValueLineEdit.__init__(self, parent)
+        FloatValueLineEdit.__init__(self, parent)
         self.decimal_places = 1
-        self.prefix_map     = None
+        self.prefix_keys     = None
         self.units          = '°C'
-        self.update_validation()
+        self.update_validator()

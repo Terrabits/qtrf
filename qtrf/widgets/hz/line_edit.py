@@ -1,10 +1,11 @@
-from qtrf.widgets.hz              import prefix_map, units
-from qtrf.widgets.value.line_edit import ValueLineEdit
+from .helpers                           import prefix_map, units
+from qtrf.widgets.float_value.line_edit import FloatValueLineEdit
 
-class HzLineEdit(ValueLineEdit):
+
+class HzLineEdit(FloatValueLineEdit):
     def __init__(self, parent=None):
-        ValueLineEdit.__init__(self, parent)
-        self.prefix_map       = prefix_map
-        self.include_negative = False
+        FloatValueLineEdit.__init__(self, parent)
+        self.prefix_keys       = prefix_map
         self.units            = units
-        self.update_validation()
+        self.include_negative = False
+        self.update_validator()

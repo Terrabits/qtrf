@@ -3,6 +3,7 @@ from pathlib                    import Path
 from PySide2.QtCore             import Signal, Slot
 from PySide2.QtWidgets          import QFileDialog, QWidget
 
+
 class FileWidget(QWidget):
     def __init__(self, parent=None):
         QWidget.__init__(self, parent)

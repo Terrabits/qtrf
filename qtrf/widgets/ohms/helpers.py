@@ -7,4 +7,4 @@ del(prefix_map['G'])
 del(prefix_map['T'])
 
 # units
-units = 'V'
+units = 'Ω'

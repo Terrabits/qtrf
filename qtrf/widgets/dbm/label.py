@@ -1,7 +1,8 @@
-from qtrf.widgets.value.label import ValueLabel
+from qtrf.widgets.float_value.label import FloatValueLabel
 
-class dBmLabel(ValueLabel):
+
+class dBmLabel(FloatValueLabel):
     def __init__(self, parent=None):
-        ValueLabel.__init__(self, parent)
-        self.prefix_map = None
+        FloatValueLabel.__init__(self, parent)
+        self.prefix_keys = None
         self.units      = 'dBm'

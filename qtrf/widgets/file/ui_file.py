@@ -13,7 +13,7 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
 
-class Ui_FileWidget(object):
+class Ui_FileWidget:
     def setupUi(self, FileWidget):
         if not FileWidget.objectName():
             FileWidget.setObjectName(u"FileWidget")

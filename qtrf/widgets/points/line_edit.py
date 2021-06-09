@@ -1,55 +1,11 @@
-from PySide2.QtCore    import QRegExp
-from PySide2.QtGui     import QRegExpValidator
-from PySide2.QtWidgets import QLineEdit
+from .helpers                         import points_validator
+from qtrf.widgets.int_value.line_edit import IntValueLineEdit
 
 
-# regex
-POINTS_REGEX = r'[1-9]\d*'
-
-
-def int_or_none(value):
-    if value is None:
-        return None
-    if value == '':
-        return None
-
-    return int(value)
-
-
-class PointsLineEdit(QLineEdit):
+class PointsLineEdit(IntValueLineEdit):
     def __init__(self, parent=None):
-        QLineEdit.__init__(self, parent)
-        self._set_validator()
+        super().__init__(parent)
+        self.update_validator()
 
-    @property
-    def value(self):
-        if not self.text():
-            return None
-
-        return int(self.text())
-
-    @value.setter
-    def value(self, value):
-        if value == self.value:
-            # nothing to do
-            return
-
-        # set
-        value = int_or_none(value)
-        if value is None:
-            self.clear()
-        else:
-            self.setText(str(value))
-
-    def focusInEvent(self, event):
-        QLineEdit.focusInEvent(self, event)
-        self.selectAll()
-
-    def mousePressEvent(self, event):
-        QLineEdit.mousePressEvent(self, event)
-        self.selectAll()
-
-    # helpers
-    def _set_validator(self):
-        validator = QRegExpValidator(QRegExp(POINTS_REGEX))
-        self.setValidator(validator)
+    def update_validator(self):
+        self.setValidator(points_validator())

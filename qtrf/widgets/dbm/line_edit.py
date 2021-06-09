@@ -1,8 +1,9 @@
-from qtrf.widgets.value.line_edit import ValueLineEdit
+from qtrf.widgets.float_value.line_edit import FloatValueLineEdit
 
-class dBmLineEdit(ValueLineEdit):
+
+class dBmLineEdit(FloatValueLineEdit):
     def __init__(self, parent=None):
-        ValueLineEdit.__init__(self, parent)
-        self.prefix_map = None
+        FloatValueLineEdit.__init__(self, parent)
+        self.prefix_keys = None
         self.units      = 'dBm'
-        self.update_validation()
+        self.update_validator()

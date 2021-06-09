@@ -1,10 +1,11 @@
-from qtrf.widgets.meters          import prefix_map, units
-from qtrf.widgets.value.line_edit import ValueLineEdit
+from .helpers                           import prefix_map, units
+from qtrf.widgets.float_value.line_edit import FloatValueLineEdit
 
-class MetersLineEdit(ValueLineEdit):
+
+class MetersLineEdit(FloatValueLineEdit):
     def __init__(self, parent=None):
-        ValueLineEdit.__init__(self, parent)
-        self.prefix_map       = prefix_map
+        FloatValueLineEdit.__init__(self, parent)
+        self.prefix_keys       = prefix_map
         self.include_negative = False
         self.units            = units
-        self.update_validation()
+        self.update_validator()

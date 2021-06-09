@@ -1,7 +1,7 @@
+from .mixins           import PortsListMixin
 from PySide2.QtWidgets import QLabel
-from .mixin.list      import ListMixin
 
-class PortsLabel(ListMixin, QLabel):
+
+class PortsLabel(PortsListMixin, QLabel):
     def __init__(self, parent=None):
-        QLabel   .__init__(self, parent)
-        ListMixin.__init__(self)
+        super().__init__(parent)

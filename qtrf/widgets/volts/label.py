@@ -1,8 +1,8 @@
-from qtrf.widgets.value.label import ValueLabel
+from qtrf.widgets.float_value.label import FloatValueLabel
 from qtrf.widgets.volts       import prefix_map, units
 
-class VoltsLabel(ValueLabel):
+class VoltsLabel(FloatValueLabel):
     def __init__(self, parent=None):
-        ValueLabel.__init__(self, parent)
-        self.prefix_map = prefix_map
+        FloatValueLabel.__init__(self, parent)
+        self.prefix_keys = prefix_map
         self.units      = units

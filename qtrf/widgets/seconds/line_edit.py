@@ -1,11 +1,11 @@
-from qtrf.widgets.seconds         import prefix_map, units
-from qtrf.widgets.value.line_edit import ValueLineEdit
+from .helpers                           import prefix_map, units
+from qtrf.widgets.float_value.line_edit import FloatValueLineEdit
 
 
-class SecondsLineEdit(ValueLineEdit):
+class SecondsLineEdit(FloatValueLineEdit):
     def __init__(self, parent=None):
-        ValueLineEdit.__init__(self, parent)
-        self.prefix_map       = prefix_map
-        self.include_negative = False
+        super().__init__(parent)
+        self.prefix_keys      = prefix_map
         self.units            = units
-        self.update_validation()
+        self.include_negative = False
+        self.update_validator()

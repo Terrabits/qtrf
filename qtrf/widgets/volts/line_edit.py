@@ -1,9 +1,9 @@
-from qtrf.widgets.value.line_edit import ValueLineEdit
+from qtrf.widgets.float_value.line_edit import FloatValueLineEdit
 from qtrf.widgets.volts           import prefix_map, units
 
-class VoltsLineEdit(ValueLineEdit):
+class VoltsLineEdit(FloatValueLineEdit):
     def __init__(self, parent=None):
-        ValueLineEdit.__init__(self, parent)
-        self.prefix_map = prefix_map
+        FloatValueLineEdit.__init__(self, parent)
+        self.prefix_keys = prefix_map
         self.units      = units
-        self.update_validation()
+        self.update_validator()
