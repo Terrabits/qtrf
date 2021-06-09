@@ -17,7 +17,7 @@ class IPAddressLineEdit(SpecialKeysMixin, QLineEdit):
 
     @Slot()
     def mousePressEvent(self, event):
-        super.mousePressEvent(event)
+        super().mousePressEvent(event)
         self.selectAll()
 
 
