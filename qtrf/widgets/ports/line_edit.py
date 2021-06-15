@@ -19,6 +19,7 @@ class PortsLineEdit(SpecialKeysMixin, ValidatorMixin, PortsListMixin, QLineEdit)
     def focusOutEvent(self, event):
         event.accept()
         self.enter_value()
+        self.deselect()
 
     @Slot()
     def mousePressEvent(self, event):

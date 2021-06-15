@@ -21,6 +21,7 @@ class IntLineEditMixin(SpecialKeysMixin, IntValueMixin):
     def focusOutEvent(self, event):
         super().focusOutEvent(event)
         self.enter_value()
+        self.deselect()
 
     @Slot()
     def mousePressEvent(self, event):

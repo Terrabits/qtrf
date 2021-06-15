@@ -22,6 +22,7 @@ class FloatLineEditMixin(SpecialKeysMixin, PrefixKeysMixin, FloatValueMixin):
     def focusOutEvent(self, event):
         super().focusOutEvent(event)
         self.enter_value()
+        self.deselect()
 
     @Slot()
     def mousePressEvent(self, event):
