@@ -1,5 +1,5 @@
-from PySide2.QtWidgets       import QLabel
-from qtrf.mixins.float_value import FloatValueMixin
+from PySide2.QtWidgets import QLabel
+from qtrf.mixins       import FloatValueMixin
 
 
 class FloatValueLabel(FloatValueMixin, QLabel):
