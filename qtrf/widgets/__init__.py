@@ -9,6 +9,7 @@ from .dbm.line_edit         import dBmLineEdit
 from .file                  import FileWidget
 from .hz.label              import HzLabel
 from .hz.line_edit          import HzLineEdit
+from .int_value.label       import IntValueLabel
 from .int_value.line_edit   import IntValueLineEdit
 from .ip_address.line_edit  import IPAddressLineEdit
 from .meters.label          import MetersLabel
