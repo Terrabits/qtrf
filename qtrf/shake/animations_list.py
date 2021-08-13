@@ -33,12 +33,9 @@ class AnimationsList(QObject):
             # prune on finished
             animation.finished.connect(self.prune)
 
-
     @Slot()
     def prune(self):
         with self.lock:
-            print('AnimationsList.prune')
-            print(f'  animations: {len(self.animations)}')
             for animation in self.animations:
                 if not is_stopped(animation):
                     # animation is still active.
@@ -48,7 +45,6 @@ class AnimationsList(QObject):
                 # animation is stopped.
                 # need to remove it.
                 self.prune_animation(animation)
-            print(f'  animations after prune: {len(self.animations)}')
 
 
     # helpers
