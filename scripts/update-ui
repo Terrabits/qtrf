@@ -12,7 +12,7 @@ cd "$ROOT_DIR"
 # update action
 function update() {
   NAME=$1
-  pyside2-uic "qtcreator/$NAME.ui" > "qtrf/widgets/$NAME/ui_$NAME.py"
+  pyside6-uic "qtcreator/$NAME.ui" > "qtrf/widgets/$NAME/ui_$NAME.py"
 }
 
 

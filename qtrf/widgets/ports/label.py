@@ -1,5 +1,5 @@
 from .mixins           import PortsListMixin
-from PySide2.QtWidgets import QLabel
+from PySide6.QtWidgets import QLabel
 
 
 class PortsLabel(PortsListMixin, QLabel):

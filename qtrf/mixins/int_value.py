@@ -1,4 +1,4 @@
-from PySide2.QtCore      import Signal
+from PySide6.QtCore      import Signal
 from qtrf.helpers        import int_or_none
 
 

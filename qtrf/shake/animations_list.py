@@ -1,4 +1,4 @@
-from PySide2.QtCore import QObject, QPropertyAnimation, Slot
+from PySide6.QtCore import QObject, QPropertyAnimation, Slot
 from threading      import RLock
 
 

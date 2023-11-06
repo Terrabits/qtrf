@@ -1,7 +1,7 @@
 from .mixins           import PortsListMixin, ValidatorMixin
 from .mixins.ports     import to_list
-from PySide2.QtCore    import Slot
-from PySide2.QtWidgets import QLineEdit
+from PySide6.QtCore    import Slot
+from PySide6.QtWidgets import QLineEdit
 from qtrf.mixins       import SpecialKeysMixin
 
 

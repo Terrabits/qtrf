@@ -1,7 +1,7 @@
 from .ui_file                   import Ui_FileWidget
 from pathlib                    import Path
-from PySide2.QtCore             import Signal, Slot
-from PySide2.QtWidgets          import QFileDialog, QWidget
+from PySide6.QtCore             import Signal, Slot
+from PySide6.QtWidgets          import QFileDialog, QWidget
 
 
 class FileWidget(QWidget):

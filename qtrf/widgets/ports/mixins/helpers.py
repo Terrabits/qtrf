@@ -1,7 +1,7 @@
 from .regex         import ports_list_regex
-from PySide2.QtCore import QRegExp
-from PySide2.QtGui  import QRegExpValidator
+from PySide6.QtCore import QRegularExpression
+from PySide6.QtGui  import QRegularExpressionValidator
 
 
 def validator():
-    return QRegExpValidator(QRegExp(ports_list_regex))
+    return QRegularExpressionValidator(QRegularExpression(ports_list_regex))

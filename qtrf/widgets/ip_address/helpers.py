@@ -1,5 +1,5 @@
-from PySide2.QtCore    import QRegExp
-from PySide2.QtGui     import QRegExpValidator
+from PySide6.QtCore    import QRegularExpression
+from PySide6.QtGui     import QRegularExpressionValidator
 
 
 # hostname regex
@@ -18,4 +18,4 @@ IP_ADDRESS_REGEX = f'(({ip_address})|({hostname}))'
 
 
 def ip_address_validator():
-    return QRegExpValidator(QRegExp(IP_ADDRESS_REGEX))
+    return QRegularExpressionValidator(QRegularExpression(IP_ADDRESS_REGEX))

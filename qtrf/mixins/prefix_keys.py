@@ -1,4 +1,4 @@
-from PySide2.QtCore      import Signal, Slot
+from PySide6.QtCore      import Signal, Slot
 from qtrf.numeric_suffix import prefix_map
 
 
