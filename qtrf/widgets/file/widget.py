@@ -16,7 +16,7 @@ class FileWidget(QWidget):
         QWidget.__init__(self, parent)
         self.ui = Ui_FileWidget()
         self.ui.setupUi(self)
-        self._filename  = None
+        self._file_path = None
         self.caption    = None
         self.filter     = ''
         self.save       = False
@@ -30,55 +30,56 @@ class FileWidget(QWidget):
     def last_path(self):
         return self._last_path
 
+
     @last_path.setter
     def last_path(self, last_path):
         self._last_path = Path(last_path)
 
 
-    # filename
+    # file_path
 
     @property
-    def filename(self):
-        return self._filename
+    def file_path(self):
+        return self._file_path
 
 
-    @filename.setter
-    def filename(self, filename):
+    @file_path.setter
+    def file_path(self, file_path):
 
-        # clear filename?
-        if not filename and self.filename:
-            self._filename = None
-            self.update_filename()
-            self.filename_changed.emit(None)
+        # clear file path?
+        if not file_path and self.file_path:
+            self._file_path = None
+            self.update_view()
+            self.file_path_changed.emit(None)
             return
 
-        # change filename?
-        if filename and filename != self.filename:
-            self._filename  = Path(filename)
-            self._last_path = self._filename.parent
-            self.update_filename()
-            self.filename_changed.emit(self.filename)
+        # change file path?
+        if file_path and file_path != self.file_path:
+            self._file_path = Path(file_path)
+            self._last_path = self.file_path.parent
+            self.update_view()
+            self.file_path_changed.emit(str(self.file_path))
 
 
-    # signal: filename changed
-    filename_changed = Signal(str)
+    # signal: file path changed
+    file_path_changed = Signal(str)
 
 
-    # slot: choose file (dialog)
+    # slot: choose file dialog
 
-    @Slot()
-    def choose_file(self, dir=None):
-        filename = self.dialog(dir)
-        if not filename:
+    @Slot(str)
+    def choose_file(self):
+        file_path = self.dialog()
+        if not file_path:
             return
-        self.filename = filename
+        self.file_path = file_path
 
 
-    # slot: clear filename
+    # slot: clear file_path
 
     @Slot()
     def clear(self):
-        self.filename = None
+        self.file_path = None
 
 
     # helpers
@@ -88,22 +89,25 @@ class FileWidget(QWidget):
         return 'Save...' if self.save else 'Open...'
 
 
-    def dialog(self, dir=None):
+    def dialog(self):
         dialog   = QFileDialog.getSaveFileName if self.save else QFileDialog.getOpenFileName
         settings = {
             "parent":  self.window(),
             "caption": self.default_caption(),
-            "dir":     dir or str(self.last_path),
+            "dir":     str(self.last_path),
             "filter":  self.filter
         }
         return dialog(*settings.values())[FILENAME_INDEX]
 
 
-    def update_filename(self):
-        if self._filename:
-            self.ui.filename.setText(Path(self._filename).name)
-        else:
+    def update_view(self):
+        # clear?
+        if not self._file_path:
             self.ui.filename.clear()
+            return
+
+        # display file_path
+        self.ui.filename.setText(self.file_path.name)
 
 
     def connect_qt_signals_and_slots(self):
