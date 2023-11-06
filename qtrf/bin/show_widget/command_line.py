@@ -1,7 +1,7 @@
 import argparse
 
 
-description='dtool for live debug of qtrf widgets'
+description='development tool for live debug of qtrf widgets'
 
 
 def parse_args():
