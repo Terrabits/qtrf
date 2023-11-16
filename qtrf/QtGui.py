@@ -14,9 +14,6 @@ except ModuleNotFoundError:
         # dump pyside2
         from PySide2.QtGui import *
 
-        # monkeypatch Qt 6 regex validator name change
-        QRegularExpressionValidator = QRegExpValidator
-
     except ModuleNotFoundError:
 
         # pyside2 not installed
