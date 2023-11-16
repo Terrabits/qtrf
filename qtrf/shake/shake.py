@@ -1,4 +1,4 @@
-from PySide6.QtCore import QEasingCurve, QPropertyAnimation
+from qtrf.QtCore import QEasingCurve, QPropertyAnimation
 from time import sleep
 
 

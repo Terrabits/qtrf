@@ -1,6 +1,6 @@
 from   .ports         import to_list, to_str
 import builtins
-from   PySide6.QtCore import Signal
+from   qtrf.QtCore import Signal
 
 
 class PortsListMixin:

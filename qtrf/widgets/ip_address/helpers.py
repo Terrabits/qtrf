@@ -1,5 +1,5 @@
-from PySide6.QtCore    import QRegularExpression
-from PySide6.QtGui     import QRegularExpressionValidator
+from qtrf.QtCore    import QRegularExpression
+from qtrf.QtGui     import QRegularExpressionValidator
 
 
 # hostname regex

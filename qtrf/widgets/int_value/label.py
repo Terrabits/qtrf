@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QLabel
+from qtrf.QtWidgets import QLabel
 from qtrf.mixins       import IntValueMixin
 
 

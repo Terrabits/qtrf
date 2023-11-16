@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QLineEdit
+from qtrf.QtWidgets import QLineEdit
 from qtrf.mixins       import IntLineEditMixin
 
 

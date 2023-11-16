@@ -1,6 +1,6 @@
 from .helpers                 import ip_address_validator
-from PySide6.QtCore           import Slot
-from PySide6.QtWidgets        import QLineEdit
+from qtrf.QtCore           import Slot
+from qtrf.QtWidgets        import QLineEdit
 from qtrf.mixins.special_keys import SpecialKeysMixin
 
 

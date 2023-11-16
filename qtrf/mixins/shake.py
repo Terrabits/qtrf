@@ -1,5 +1,5 @@
 from qtrf.shake     import AnimationsList, shake
-from PySide6.QtCore import Slot
+from qtrf.QtCore import Slot
 
 
 # Use requires:

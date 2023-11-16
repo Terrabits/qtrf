@@ -1,6 +1,6 @@
 from   .command_line     import parse_args
 import code
-from   PySide6.QtWidgets import QApplication
+from   qtrf.QtWidgets import QApplication
 import qtrf.widgets
 import sys
 
