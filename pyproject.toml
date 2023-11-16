@@ -6,11 +6,12 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "qtrf"
 authors = [{name  = "Nick Lalic", email = "nick.lalic@rsa.rohde-schwarz.com"}]
-description     = "Widgets for RF inputs written in Qt for Python (PySide6)."
+description     = "Widgets for RF inputs written in Qt for Python"
 requires-python = ">=3.5"
 keywords = [
   "Qt",
   "PySide",
+  "PySide2",
   "PySide6",
   "RF ",
   "Rohde ",
@@ -34,7 +35,7 @@ classifiers  = [
   "Programming Language :: Python :: 3.6",
   "Programming Language :: Python :: 3.7",
 ]
-dependencies = [ "PySide6" ]
+dependencies = [ ]
 dynamic = [
   "readme",
   "version"
@@ -51,8 +52,9 @@ show-widget = "qtrf.bin.show_widget:main"
 
 
 [project.optional-dependencies]
-dev  = ["ddt", "twine", "wheel"]
-test = ["ddt"]
+dev  = ["ddt", "PySide6", "twine", "wheel"]
+test = ["ddt", "PySide6"]
+test-pyside2 = ["ddt", "PySide2"]
 
 
 [tool.setuptools.dynamic]
