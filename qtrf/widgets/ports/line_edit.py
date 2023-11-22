@@ -5,15 +5,19 @@ from qtrf.QtWidgets import QLineEdit
 from qtrf.mixins    import SpecialKeysMixin
 
 
-class PortsLineEdit(SpecialKeysMixin, ValidatorMixin, PortsListMixin, QLineEdit):
+class PortsLineEdit(QLineEdit, SpecialKeysMixin, ValidatorMixin, PortsListMixin):
+
     def __init__(self, parent=None):
-        super().__init__(parent)
+        QLineEdit.__init__(self, parent)
+        SpecialKeysMixin.__init__(self)
         self.special_key_pressed.connect(self.enter_value)
+
 
     @Slot()
     def focusInEvent(self, event):
         super().focusInEvent(event)
         self.selectAll()
+
 
     @Slot()
     def focusOutEvent(self, event):

@@ -2,6 +2,8 @@ from qtrf.QtWidgets import QLabel
 from qtrf.mixins    import IntValueMixin
 
 
-class IntValueLabel(IntValueMixin, QLabel):
+class IntValueLabel(QLabel, IntValueMixin):
+
     def __init__(self, parent=None):
-        super().__init__(parent)
+        QLabel.__init__(self, parent)
+        IntValueMixin.__init__(self)

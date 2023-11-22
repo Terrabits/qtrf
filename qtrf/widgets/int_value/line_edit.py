@@ -2,6 +2,8 @@ from qtrf.QtWidgets import QLineEdit
 from qtrf.mixins    import IntLineEditMixin
 
 
-class IntValueLineEdit(IntLineEditMixin, QLineEdit):
+class IntValueLineEdit(QLineEdit, IntLineEditMixin):
+
     def __init__(self, parent=None):
-        super().__init__(parent)
+        QLineEdit.__init__(self, parent)
+        IntLineEditMixin.__init__(self)

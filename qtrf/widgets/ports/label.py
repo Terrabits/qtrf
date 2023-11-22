@@ -2,6 +2,8 @@ from .mixins        import PortsListMixin
 from qtrf.QtWidgets import QLabel
 
 
-class PortsLabel(PortsListMixin, QLabel):
+class PortsLabel(QLabel, PortsListMixin):
+
     def __init__(self, parent=None):
-        super().__init__(parent)
+        QLabel.__init__(self, parent)
+        PortsListMixin.__init__(self)

@@ -2,6 +2,8 @@ from qtrf.QtWidgets import QLabel
 from qtrf.mixins    import FloatValueMixin
 
 
-class FloatValueLabel(FloatValueMixin, QLabel):
+class FloatValueLabel(QLabel, FloatValueMixin):
+
     def __init__(self, parent=None):
-        super().__init__(parent)
+        QLabel.__init__(self, parent)
+        FloatValueMixin.__init__(self)
