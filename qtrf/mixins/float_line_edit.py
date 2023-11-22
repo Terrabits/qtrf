@@ -2,7 +2,7 @@ from .float_value        import FloatValueMixin
 from .helpers            import float_validator
 from .prefix_keys        import PrefixKeysMixin
 from .special_keys       import SpecialKeysMixin
-from qtrf.QtCore      import Slot
+from qtrf.QtCore         import Slot
 from qtrf.numeric_suffix import to_decimal
 
 

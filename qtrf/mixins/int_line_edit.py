@@ -1,8 +1,8 @@
-from .int_value          import IntValueMixin
-from .helpers            import int_validator
-from .special_keys       import SpecialKeysMixin
-from qtrf.QtCore      import Slot
-from qtrf.helpers        import int_or_none
+from .int_value    import IntValueMixin
+from .helpers      import int_validator
+from .special_keys import SpecialKeysMixin
+from qtrf.QtCore   import Slot
+from qtrf.helpers  import int_or_none
 
 
 class IntLineEditMixin(SpecialKeysMixin, IntValueMixin):

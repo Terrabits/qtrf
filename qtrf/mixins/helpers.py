@@ -1,5 +1,5 @@
-from qtrf.QtCore      import QRegularExpression
-from qtrf.QtGui       import QRegularExpressionValidator
+from qtrf.QtCore         import QRegularExpression
+from qtrf.QtGui          import QRegularExpressionValidator
 from qtrf.numeric_suffix import regex_str
 
 

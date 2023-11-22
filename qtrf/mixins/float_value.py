@@ -1,4 +1,4 @@
-from qtrf.QtCore      import Signal
+from qtrf.QtCore         import Signal
 from qtrf.helpers        import float_or_none
 from qtrf.numeric_suffix import prefix_map, to_str
 

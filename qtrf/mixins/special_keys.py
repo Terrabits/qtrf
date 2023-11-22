@@ -1,4 +1,4 @@
-from qtrf.QtCore    import Signal, Slot, Qt
+from qtrf.QtCore import Signal, Slot, Qt
 
 
 SPECIAL_KEYS = [Qt.Key_Space, Qt.Key_Enter, Qt.Key_Return]

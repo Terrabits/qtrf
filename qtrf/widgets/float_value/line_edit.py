@@ -1,5 +1,5 @@
 from qtrf.QtWidgets import QLineEdit
-from qtrf.mixins       import FloatLineEditMixin
+from qtrf.mixins    import FloatLineEditMixin
 
 
 class FloatValueLineEdit(FloatLineEditMixin, QLineEdit):

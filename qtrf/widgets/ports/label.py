@@ -1,4 +1,4 @@
-from .mixins           import PortsListMixin
+from .mixins        import PortsListMixin
 from qtrf.QtWidgets import QLabel
 
 

@@ -1,8 +1,8 @@
-from .mixins           import PortsListMixin, ValidatorMixin
-from .mixins.ports     import to_list
+from .mixins        import PortsListMixin, ValidatorMixin
+from .mixins.ports  import to_list
 from qtrf.QtCore    import Slot
 from qtrf.QtWidgets import QLineEdit
-from qtrf.mixins       import SpecialKeysMixin
+from qtrf.mixins    import SpecialKeysMixin
 
 
 class PortsLineEdit(SpecialKeysMixin, ValidatorMixin, PortsListMixin, QLineEdit):

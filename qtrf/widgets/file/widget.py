@@ -1,7 +1,7 @@
-from .ui_file                   import Ui_FileWidget
-from pathlib                    import Path
-from qtrf.QtCore             import Signal, Slot
-from qtrf.QtWidgets          import QFileDialog, QWidget
+from .ui_file       import Ui_FileWidget
+from pathlib        import Path
+from qtrf.QtCore    import Signal, Slot
+from qtrf.QtWidgets import QFileDialog, QWidget
 
 
 # constants

@@ -1,5 +1,5 @@
 from qtrf.QtCore import QEasingCurve, QPropertyAnimation
-from time import sleep
+from time        import sleep
 
 
 # constants

@@ -19,6 +19,7 @@ from .ohms.line_edit        import OhmsLineEdit
 from .points.line_edit      import PointsLineEdit
 from .ports.label           import PortsLabel
 from .ports.line_edit       import PortsLineEdit
+from .seconds.label         import SecondsLabel
 from .seconds.line_edit     import SecondsLineEdit
 from .touchstone            import TouchstoneWidget
 from .user_corrections      import UserCorrectionsWidget
@@ -51,6 +52,7 @@ __all__ = [
     "PointsLineEdit",
     "PortsLabel",
     "PortsLineEdit",
+    "SecondsLabel",
     "SecondsLineEdit",
     "TouchstoneWidget",
     "UserCorrectionsWidget",

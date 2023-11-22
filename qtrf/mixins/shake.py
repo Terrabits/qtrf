@@ -1,4 +1,4 @@
-from qtrf.shake     import AnimationsList, shake
+from qtrf.shake  import AnimationsList, shake
 from qtrf.QtCore import Slot
 
 

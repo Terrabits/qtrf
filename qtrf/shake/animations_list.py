@@ -1,5 +1,5 @@
 from qtrf.QtCore import QObject, QPropertyAnimation, Slot
-from threading      import RLock
+from threading   import RLock
 
 
 # constants

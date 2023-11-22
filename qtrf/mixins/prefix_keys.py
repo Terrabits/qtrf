@@ -1,4 +1,4 @@
-from qtrf.QtCore      import Signal, Slot
+from qtrf.QtCore         import Signal, Slot
 from qtrf.numeric_suffix import prefix_map
 
 

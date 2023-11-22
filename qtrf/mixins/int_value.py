@@ -1,5 +1,5 @@
-from qtrf.QtCore      import Signal
-from qtrf.helpers        import int_or_none
+from qtrf.QtCore  import Signal
+from qtrf.helpers import int_or_none
 
 
 class IntValueMixin:

@@ -1,4 +1,4 @@
-from .regex         import ports_list_regex
+from .regex      import ports_list_regex
 from qtrf.QtCore import QRegularExpression
 from qtrf.QtGui  import QRegularExpressionValidator
 
