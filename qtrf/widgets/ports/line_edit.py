@@ -5,11 +5,11 @@ from qtrf.QtWidgets import QLineEdit
 from qtrf.mixins    import SpecialKeysMixin
 
 
-class PortsLineEdit(QLineEdit, SpecialKeysMixin, ValidatorMixin, PortsListMixin):
+class PortsLineEdit(SpecialKeysMixin, ValidatorMixin, PortsListMixin, QLineEdit):
+
 
     def __init__(self, parent=None):
-        QLineEdit.__init__(self, parent)
-        SpecialKeysMixin.__init__(self)
+        super().__init__(parent)
         self.special_key_pressed.connect(self.enter_value)
 
 

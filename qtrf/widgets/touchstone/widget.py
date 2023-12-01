@@ -1,8 +1,9 @@
 from qtrf.widgets.file import FileWidget
 
 class TouchstoneWidget(FileWidget):
+
     def __init__(self, parent=None):
-        FileWidget.__init__(self, parent)
+        super().__init__(parent)
         self.ports = '*'
 
     @property

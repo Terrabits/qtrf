@@ -12,16 +12,19 @@ def is_stopped(animation):
 
 
 class AnimationsList(QObject):
-    def __init__(self):
-        super().__init__()
 
+
+    def __init__(self, parent=None):
+        super().__init__(parent)
         self.lock       = RLock()
         self.animations = []
+
 
     def __del__(self):
         with self.lock:
             self.stop_all()
             self.prune_all()
+
 
     def add(self, animation):
         with self.lock:
@@ -32,6 +35,7 @@ class AnimationsList(QObject):
 
             # prune on finished
             animation.finished.connect(self.prune)
+
 
     @Slot()
     def prune(self):
@@ -54,6 +58,7 @@ class AnimationsList(QObject):
             for animation in self.animations:
                 animation.stop()
 
+
     def prune_animation(self, animation):
         with self.lock:
             assert animation in self.animations
@@ -68,10 +73,12 @@ class AnimationsList(QObject):
             # mark for Qt garbage collection
             animation.deleteLater()
 
+
     def prune_all(self):
         with self.lock:
             for animation in self.animations:
                 self.prune_animation(animation)
+
 
     def clear(self):
         self.stop_all()

@@ -33,6 +33,7 @@ def to_list(ports_str):
     ports.sort()
     return ports
 
+
 def to_str(ports_list):
     if not ports_list:
         return ''

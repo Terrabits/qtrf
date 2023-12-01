@@ -2,32 +2,39 @@ from .float_value        import FloatValueMixin
 from .helpers            import float_validator
 from .prefix_keys        import PrefixKeysMixin
 from .special_keys       import SpecialKeysMixin
-from qtrf.QtCore         import Slot
+from qtrf.QtCore         import Slot, Qt
+from qtrf.QtGui          import QFocusEvent, QMouseEvent
 from qtrf.numeric_suffix import to_decimal
 
 
 class FloatLineEditMixin(SpecialKeysMixin, PrefixKeysMixin, FloatValueMixin):
+
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.include_negative = True
         self.update_validator()
         self.connect_qt_signals_and_slots()
 
-    @Slot()
+
+    @Slot(QFocusEvent)
     def focusInEvent(self, event):
         super().focusInEvent(event)
         self.selectAll()
 
-    @Slot()
+
+    @Slot(QFocusEvent)
     def focusOutEvent(self, event):
         super().focusOutEvent(event)
         self.enter_value()
         self.deselect()
 
-    @Slot()
+
+    @Slot(QMouseEvent)
     def mousePressEvent(self, event):
         super().mousePressEvent(event)
         self.selectAll()
+
 
     def connect_qt_signals_and_slots(self):
         self.special_key_pressed.connect(self.enter_value)
@@ -40,6 +47,7 @@ class FloatLineEditMixin(SpecialKeysMixin, PrefixKeysMixin, FloatValueMixin):
         self.value = to_decimal(self.text(), self.units, self.prefix_keys)
         self.selectAll()
 
+
     def enter_value_with_prefix(self, prefix):
         # base
         base_value = to_decimal(self.text(), self.units)
@@ -49,14 +57,12 @@ class FloatLineEditMixin(SpecialKeysMixin, PrefixKeysMixin, FloatValueMixin):
             return
 
         # get prefix value
-        prefix = chr(prefix)
-        if not prefix in self.prefix_keys:
-            prefix = prefix.lower()
         prefix_value = self.prefix_keys[prefix]
 
         # set
         self.value = base_value * prefix_value
         self.selectAll()
+
 
     def update_validator(self):
         _validator = float_validator(self.prefix_keys, self.units, self.include_negative)

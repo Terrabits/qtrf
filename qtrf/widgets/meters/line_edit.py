@@ -3,8 +3,9 @@ from qtrf.widgets.float_value.line_edit import FloatValueLineEdit
 
 
 class MetersLineEdit(FloatValueLineEdit):
+
     def __init__(self, parent=None):
-        FloatValueLineEdit.__init__(self, parent)
+        super().__init__(parent)
         self.prefix_keys       = prefix_map
         self.include_negative = False
         self.units            = units

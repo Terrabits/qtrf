@@ -7,6 +7,8 @@ from qtrf.numeric_suffix import prefix_map, to_str
 # - class be QWidget
 # - methods: text() and setText(text)
 class FloatValueMixin:
+
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.decimal_places = 3
@@ -14,10 +16,13 @@ class FloatValueMixin:
         self.units          = 'U'
         self._value         = None
 
+
     # value
+
     @property
     def value(self):
         return self._value
+
 
     @value.setter
     def value(self, value):
@@ -32,8 +37,10 @@ class FloatValueMixin:
         self._update_text()
         self.value_changed.emit(self.value)
 
+
     # signals
     value_changed = Signal(float)
+
 
     # helpers
 

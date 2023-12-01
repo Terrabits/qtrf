@@ -2,6 +2,8 @@ from .helpers import validator
 
 
 class ValidatorMixin:
+
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.update_validator()

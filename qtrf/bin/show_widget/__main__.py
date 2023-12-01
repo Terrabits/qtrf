@@ -14,13 +14,13 @@ def main():
     args = parse_args()
 
     # create qt app
-    q_app  = QApplication()
+    app  = QApplication()
 
     # is qtrf.widget_class?
     try:
         WidgetClass = getattr(qtrf.widgets, args.widget_class)
     except AttributeError:
-        print("error 404: {widget_class} not found in qtrf".format(widget_class=args.widget_class))
+        print(f"error: class '{args.widget_class}' not found in qtrf")
         sys.exit(404)
 
     # create
@@ -28,11 +28,11 @@ def main():
     widget.show()
 
     # run
-    return_code = q_app.exec_()
+    return_code = app.exec_()
 
     # interactive mode?
     if args.interactive:
-        banner = '{widget_class} => widget'.format(widget_class=args.widget_class)
+        banner = f'widget: {widget}'
         code.interact(banner, local=locals())
 
     sys.exit(return_code)

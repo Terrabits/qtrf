@@ -13,7 +13,7 @@ class FileWidget(QWidget):
     # constructor
 
     def __init__(self, parent=None):
-        QWidget.__init__(self, parent)
+        super().__init__(parent)
         self.ui = Ui_FileWidget()
         self.ui.setupUi(self)
         self._file_path = None

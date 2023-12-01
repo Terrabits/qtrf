@@ -3,14 +3,19 @@ from qtrf.helpers import int_or_none
 
 
 class IntValueMixin:
+
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self._value = None
 
+
     # value
+
     @property
     def value(self):
         return self._value
+
 
     @value.setter
     def value(self, value):
@@ -25,8 +30,10 @@ class IntValueMixin:
         self._update_text()
         self.value_changed.emit(self.value)
 
+
     # signals
     value_changed = Signal(int)
+
 
     # helpers
 

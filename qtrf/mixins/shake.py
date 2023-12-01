@@ -6,12 +6,14 @@ from qtrf.QtCore import Slot
 # - class be top-most parent QWidget
 # (e.g. window or mainwindow)
 class ShakeMixin:
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
 
-        # keep animations out of
-        # python garbage collection
-        self.animations = AnimationsList()
+
+    def __init__(self, parent=None):
+        super().__init__(parent)
+
+        # keep animations out of python garbage collection
+        self.animations = AnimationsList(parent)
+
 
     Slot()
     def shake(self):

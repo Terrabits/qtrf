@@ -1,6 +1,7 @@
 from qtrf.widgets.file import FileWidget
 
 class UserCorrectionsWidget(FileWidget):
+
     def __init__(self, parent=None):
-        FileWidget.__init__(self, parent)
+        super().__init__(parent)
         self.filter = 'User Corrections File (*.uco *.ucor)'

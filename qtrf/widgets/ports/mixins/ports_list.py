@@ -4,13 +4,19 @@ from   qtrf.QtCore import Signal
 
 
 class PortsListMixin:
+
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self._list = []
 
+
+    # list property
+
     @property
     def list(self):
         return self._list
+
 
     @list.setter
     def list(self, list):
@@ -26,7 +32,9 @@ class PortsListMixin:
         # emit signal
         self.list_changed.emit(self.list)
 
+
     list_changed = Signal(builtins.list)
+
 
     # helpers
 
